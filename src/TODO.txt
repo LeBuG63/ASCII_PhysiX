@@ -1,0 +1,26 @@
+TODO:
+
+V = FAIT
+X = ABANDONNER
+N = PROCHAINE MAJ
+
+03/04/13:
+V	- Finir les touches claviers
+X	- Changer les touches de déplacement:
+		5: haut
+		1: gauche
+		2: bas
+		3: droite
+V	- Finir l'ouverture de la map
+
+04/04/13:
+V	- Correction du bug sur les REVERSE BLOCK
+X	- Correction des bugs de collision sur les REVERSE BLOCK et les autres block
+
+05/04/13:
+	- Correction de la libération sur la mémoire
+V	- Création d'un fichier option (option.opt) et mettre:
+		- Les touches
+		- Largeur / Hauteur
+		- Les caractères de la map / bordure
+V	- Le widht ne s'affiche pas dans les options. A regler.
