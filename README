@@ -22,10 +22,10 @@ Controles:
 
 Options:
 Vous pouvez modifier les options dans le fichier "options.opt" /!\ NE SOURTOUT PAS L'EFFACER !
-"widht=NN" 		La largeur de la map (ne pas dépasser 79)
+"widht=NN" 		La largeur de la map (ne pas depasser 79)
 "height=NN" 	La hauteur de la map
 "char_border=C"	Le caractere pour la bordure de la map
 "char_fill=C"	Le caractere pour l'intérieur de la map
 
-N représente un nombre
-C représente un caractere
+N represente un nombre
+C represente un caractere
