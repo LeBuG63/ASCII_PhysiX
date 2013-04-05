@@ -13,7 +13,7 @@ Controles:
 [h]	L'aide
 [l] Poser un bloc leger
 [L] Poser un bloc lourd
-[r] Poser un bloc soumis à la gravité inverse
+[r] Poser un bloc soumis a la gravite inverse
 [ ] Poser un mur
 
 [ENTREE] Mettre en pause
@@ -25,7 +25,7 @@ Vous pouvez modifier les options dans le fichier "options.opt" /!\ NE SOURTOUT P
 "widht=NN" 		La largeur de la map (ne pas depasser 79)
 "height=NN" 	La hauteur de la map
 "char_border=C"	Le caractere pour la bordure de la map
-"char_fill=C"	Le caractere pour l'intérieur de la map
+"char_fill=C"	Le caractere pour l'interieur de la map
 
 N represente un nombre
 C represente un caractere
