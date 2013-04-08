@@ -5,12 +5,12 @@
 void	ll_create(linkedlist_t *_ll)
 {
 	_ll->start = _ll->end = NULL;
-	_ll->size = 0;
+	_ll->size  = 0;
 }
 
 void	ll_destroy(linkedlist_t *_ll)
 {
-	/*node_t *node = _ll->start, *tmp = NULL;
+	node_t	*node = _ll->start, *tmp = NULL;
 
 	while(node != NULL)
 	{
@@ -18,7 +18,8 @@ void	ll_destroy(linkedlist_t *_ll)
 		free(node);
 		node = tmp;
 	}
-	free(_ll);*/
+
+	_ll->size = 0;
 }
 
 void	ll_add(linkedlist_t *_ll, block_t _block, point_t _p)
@@ -26,9 +27,7 @@ void	ll_add(linkedlist_t *_ll, block_t _block, point_t _p)
 	node_t	*new_elem = NULL;
 
 	if((new_elem = (node_t*)malloc(sizeof(node_t))) == NULL)
-	{
 		exit(1);
-	}
 
 	new_elem->block		= _block;
 	new_elem->block.pos = _p;
@@ -37,8 +36,8 @@ void	ll_add(linkedlist_t *_ll, block_t _block, point_t _p)
 	if(_ll->end)
 		_ll->end->next = new_elem;
 	else
-		_ll->start	= new_elem;
-	_ll->end	= new_elem;
+		_ll->start = new_elem;
+	_ll->end = new_elem;
 
 	_ll->size++;
 }

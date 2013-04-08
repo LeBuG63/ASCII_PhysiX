@@ -33,10 +33,9 @@ void	save(void)
     fprintf(file, "%u %u\n", _map.h, _map.w);
 
     for(y = 0; y < _map.h; y++)
-    {
         for(x = 0; x < _map.w; x++)
-            fputc(_map.arr[y][x], file);
-    }
-
+			fputc(_map.arr[y][x], file);
     fclose(file);
+	clrscr();
+	map_print();
 }

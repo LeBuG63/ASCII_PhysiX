@@ -10,11 +10,26 @@ Remerciements:
 -----------------------------------------------------------
 
 Controles:
+[1] Bloc de type: Block
+    - [b] Poser un bloc lourd
+    - [g] Poser une grille (laisse passer la dust mais pas les autres elements)
+    - [ ] Poser un mur
+
+[2] Bloc de type: Water
+    - En cours...
+
+[3] Bloc de type: Dust
+    - [s] Poser un bloc leger
+    - [r] Poser un bloc soumis a la gravite inverse
+	
 [h]	L'aide
-[l] Poser un bloc leger
-[L] Poser un bloc lourd
-[r] Poser un bloc soumis a la gravite inverse
-[ ] Poser un mur
+
+[S] Sauvegarde de la map
+[O] Ouverture de la map
+
+[C] Effacer la map
+
+[Q] Termine le programme
 
 [ENTREE] Mettre en pause
 
@@ -22,7 +37,7 @@ Controles:
 
 Options:
 Vous pouvez modifier les options dans le fichier "options.opt" /!\ NE SOURTOUT PAS L'EFFACER !
-"widht=NN" 		La largeur de la map (ne pas depasser 79)
+"widht=NN"      La largeur de la map (ne pas depasser 79)
 "height=NN" 	La hauteur de la map
 "char_border=C"	Le caractere pour la bordure de la map
 "char_fill=C"	Le caractere pour l'interieur de la map

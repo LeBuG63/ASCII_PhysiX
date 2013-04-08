@@ -21,11 +21,12 @@ void	open(linkedlist_t *_ll, player_t *_p)
 
 	ll_destroy(_ll);
 	ll_create(_ll);
+	destroy_hud();
 	map_dealloc();
 
-    clrsrc();
-
-	putstr("File to open: ");
+    clrscr();
+	readDirectory("Saves/");
+	putstr("\nFile to open: ");
     scanf("%s", filename);
     sprintf(filepath, "Saves/%s.ascphx", filename);
 
@@ -38,7 +39,7 @@ void	open(linkedlist_t *_ll, player_t *_p)
         exit(1);
     }
 
-    fscanf(file, "%d %d\n", &_map.h, &_map.w);
+    fscanf(file, "%u %u\n", &_map.h, &_map.w);
 
     map_create();
 
@@ -55,9 +56,7 @@ void	open(linkedlist_t *_ll, player_t *_p)
         else
             coord.x++;
         if(c != _map.cfill && c != _map.cborder && c != 2)
-        {
             ll_add(_ll, get_block_char(c), coord);
-        }
         if(c != EOF)
             _map.arr[coord.y][coord.x] = c;
         if(c == 2)
@@ -67,7 +66,7 @@ void	open(linkedlist_t *_ll, player_t *_p)
     }while(c != EOF);
 
     fclose(file);
-    map_print();
-	destroy_hud();
+	clrscr();
+	map_print();
 	hud(*_ll);
 }

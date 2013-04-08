@@ -13,7 +13,7 @@
 #include "screen.h"
 #include "options.h"
 
-#define VERSION	L"ALPHA - 0.8.4"
+#define VERSION	L"ALPHA - 0.9.3"
 
 int main(void)
 {
@@ -23,10 +23,11 @@ int main(void)
 	wchar_t			ws_now[sizeof("JJ/MM/AAAA HH:MM:SS") + 1];
 	char			s_now[sizeof("JJ/MM/AAAA HH:MM:SS") + 1];
 	wchar_t			title[39];
-
-	time_t now = time (NULL);
+	time_t			now = time(NULL);
 
 	open_option();
+
+	CLASS_OBJ	 = CLASS_BLOCK;
 
 	player.ch	 = 2;
 	player.pos.x = (__uint)_map.w/2;
@@ -46,7 +47,7 @@ int main(void)
 
 		wsprintf(title, L"ASCII_PhysiX (%s)   [%s]", VERSION, ws_now);
 		SetConsoleTitle(title);
-		
+
 		Sleep(44);
 		hud(*ll);
 

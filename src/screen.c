@@ -12,6 +12,23 @@ void	hud(linkedlist_t _ll)
 {
     point_t	p = {0, _map.h};
     int		physic;
+	char	class_block[21];
+
+	switch(CLASS_OBJ)
+	{
+	case 1:
+		sprintf(class_block, "Block");
+		break;
+	case 2:
+		sprintf(class_block, "Water");
+		break;
+	case 3:
+		sprintf(class_block, "Dust ");
+		break;
+	default:
+		sprintf(class_block, "Unknow");
+		break;
+	}
 
 #ifdef PHYSIC_MODE
     physic = 1;
@@ -30,7 +47,7 @@ void	hud(linkedlist_t _ll)
 
     p.x += 2;
     gotoxy(p);
-    printf(" | Mode: %s | Number of element(s): %d |", ((physic) ? "Physic" : "Game" ), _ll.size);
+    printf(" | Mode: %s | Number of element(s): %d | %s |", ((physic) ? "Physic" : "Game" ), _ll.size, class_block);
 
     setcolor(LIGHTGRAY);
 }
@@ -41,14 +58,15 @@ void	destroy_hud(void)
 
 	gotoxy(p);
 	setcolor(bBLACK);
-	putstr("                                        ");
+	putstr("                                                             ");
+	setcolor(LIGHTGRAY);
 }
 
 void	help(void)
 {
 	__uint	i = 0;
 
-	clrsrc();
+	clrscr();
 	
 	for(i = 0; i < _map.w; i++)
 		putchar('-');
@@ -62,8 +80,9 @@ void	help(void)
 		else
 			printf("|[%c - %c] %s\t| %s\t\n", block_id[i].ch, block_id[i].key, block_id[i].name, block_id[i].explication);
 	}
+	putstr("\nBy PixelCode team !\n\n");
 	putstr("\nPress [ENTER] to continue...");
 	getchar();
-	clrsrc();
+	clrscr();
 	map_print();
 }

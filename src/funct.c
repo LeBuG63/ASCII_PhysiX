@@ -1,5 +1,7 @@
 #include <Windows.h>
 #include <io.h>
+#include <stdio.h>
+#include <dirent.h>
 
 #include "funct.h"
 
@@ -20,7 +22,7 @@ void    setcolor(color_t _c)
     SetConsoleTextAttribute(H, _c);
 }
 
-void    clrsrc(void)
+void    clrscr(void)
 {
     HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
     COORD coord = {0, 0};
@@ -35,4 +37,27 @@ void	putstr(const char *_str)
 {
 	while(*_str)
 		write(1, &*_str++, 1);
+}
+
+void    readDirectory(const char *name)
+{
+    DIR *rep = NULL;
+    
+    struct dirent* fileRead = NULL;
+    
+    rep = opendir(name);
+    
+    if (rep == NULL)
+    {
+        printf("The directory does not exist.");
+        getchar();
+        exit(1);
+    }
+    fileRead = readdir(rep);
+
+    printf ("[%s ]\n", name);
+    while ((fileRead = readdir(rep)) != NULL)
+        printf("\t- %s\n", fileRead->d_name);
+    
+    closedir(rep);
 }

@@ -70,7 +70,7 @@ void	map_refresh(linkedlist_t *_ll)
 {
 	__uint	where = 0;
 	__byte	ch;
-	point_t	pos;
+	point_t pos;
 	int		stop = 0;
 
 	for(where = 0; where < _ll->size; where++)
@@ -79,16 +79,18 @@ void	map_refresh(linkedlist_t *_ll)
 		
 		if(!PAUSE)
 		{
-			if(ch == block_id[LIGHT_BLOCK].ch)
+			if(ch == block_id[SAND].ch)
 				lightblock(_ll, &pos, where, &stop);
-			if(ch == block_id[REVERSE_BLOCK].ch)
+			else if(ch == block_id[REVERSE_BLOCK].ch)
 				reverseblock(_ll, &pos, where, &stop);
-			if(ch == block_id[HEAVY_BLOCK].ch)
+			else if(ch == block_id[HEAVY_BLOCK].ch)
 				heavyblock(_ll, &pos, where, &stop);
-			if(ch == block_id[WATER].ch)
+			else if(ch == block_id[WATER].ch)
 				water(_ll, &pos, where, &stop);
-			if(ch == block_id[WALL].ch)
-				stop = 1;
+			else if(ch == block_id[PISTON].ch)
+				piston(_ll, &pos, where, &stop);
+			else if(ch == block_id[GRID].ch)
+				grid(_ll, &pos, where);
 		}
 
 		if(stop)

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "player.h"
 #include "funct.h"
@@ -27,6 +28,24 @@ void	player_action(player_t _p, linkedlist_t *_ll)
 	case K_Q:
 		ll_destroy(_ll);
 		map_dealloc();
+		exit(0);
+		break;
+	case K_C:
+		ll_destroy(_ll);
+		ll_create(_ll);
+		clrscr();
+		map_dealloc();
+		map_create();
+		map_print();
+		break;
+	case K_1:
+		CLASS_OBJ = CLASS_BLOCK;
+		break;
+	case K_2:
+		CLASS_OBJ = CLASS_WATER;
+		break;
+	case K_3:
+		CLASS_OBJ = CLASS_DUST;
 		break;
 	}
 }

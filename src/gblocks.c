@@ -2,7 +2,7 @@
 
 #include "map.h"
 #include "funct.h"
-#include "gblocks.h"
+#include "blocks.h"
 
 void	lightblock(linkedlist_t *_ll, point_t *_p, __uint _where, int *_stop)
 {
@@ -16,7 +16,7 @@ void	lightblock(linkedlist_t *_ll, point_t *_p, __uint _where, int *_stop)
 	}
 	else
 	{
-		_map.arr[_p->y][_p->x] = block_id[LIGHT_BLOCK].ch;
+		_map.arr[_p->y][_p->x] = block_id[SAND].ch;
 		*_stop = 1;
 	}
 }
@@ -53,12 +53,34 @@ void	heavyblock(linkedlist_t *_ll, point_t *_p, __uint _where, int *_stop)
 	}
 }
 
+void	grid(linkedlist_t *_ll, point_t *_p, __uint where)
+{
+	int		i;
+	point_t	cpy = *_p;
+
+	cpy.y--;
+	i = get_id_block(cpy, _ll);
+
+	if(i != -1)
+	{
+		if(block_id[i].familly == CLASS_DUST)
+		{
+			_map.arr[_p->y][_p->x]		= _map.cfill;
+			_map.arr[_p->y - 1][_p->x]	= _map.cfill;
+		}
+		else
+			_map.arr[_p->y][_p->x] = block_id[GRID].ch;
+	}
+	else
+		_map.arr[_p->y][_p->x] = block_id[GRID].ch;
+}
+
 void	water(linkedlist_t *_ll, point_t *_p, __uint _where, int *_stop)
 {
-	static point_t	p_ob_xe,
-					p_ob_xw;
-	static point_t	tmp;
-	static int		ok = 0;
+	point_t	p_ob_xe,
+			p_ob_xw;
+	point_t	tmp;
+	int		ok = 0;
 
 	if(!obstacle(*_p, 1, DIR_S))
 	{

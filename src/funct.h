@@ -5,7 +5,8 @@
 
 void	gotoxy(point_t);
 void    setcolor(color_t _c);
-void    clrsrc(void);
+void    clrscr(void);
 void	putstr(const char *);
+void    readDirectory(const char *);
 
 #endif /* __FUNCT_H__ */
