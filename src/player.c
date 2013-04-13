@@ -8,9 +8,11 @@
 #include "save.h"
 #include "open.h"
 #include "screen.h"
+#include "blocks.h"
 
 void	player_action(player_t _p, linkedlist_t *_ll)
 {
+	int		i;
 	switch(_p.key)
 	{
 	case K_S:
@@ -46,6 +48,17 @@ void	player_action(player_t _p, linkedlist_t *_ll)
 		break;
 	case K_3:
 		CLASS_OBJ = CLASS_DUST;
+		break;
+	case K_a:
+		_p.pos.y++;
+		i = get_blockid(_p.pos, _ll);
+
+		if(i != -1)
+		{
+			//ll_print(_ll);
+			ll_destroy_at(_ll, i);
+			_map.arr[_p.pos.y][_p.pos.x] = _map.cfill;
+		}
 		break;
 	}
 }

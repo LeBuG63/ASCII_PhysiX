@@ -3,7 +3,8 @@
 
 void	player_move(player_t *_player)
 {
-	_player->pback = _player->pos;
+	_player->pback  = _player->pos;
+	_player->chback = _map.arr[_player->pos.y][_player->pos.x];
 
 	switch(_player->key)
 	{

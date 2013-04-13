@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 
 #include "linkedlist.h"
 
@@ -42,13 +43,40 @@ void	ll_add(linkedlist_t *_ll, block_t _block, point_t _p)
 	_ll->size++;
 }
 
+void	ll_destroy_at(linkedlist_t *_ll, __uint _where)
+{
+	int		i = 0;
+	node_t	*act, 
+			*tmp;
+
+	act = _ll->start;
+
+	while(act != NULL)
+	{
+		if(i == _where)
+			break;
+		act = act->next;
+		i++;
+	}
+
+	tmp = act;
+	act = act->next;
+
+	if(act == NULL)
+		_ll->end = act;
+
+	free(tmp);
+
+	_ll->size--;
+}
+
 void	ll_print(linkedlist_t *_ll)
 {
 	node_t	*node = _ll->start;
 	__uint	i = 0;
 
 
-	while(i < _ll->size)
+	while(node != NULL)
 	{
 		putchar(node->block.ch);
 		node = node->next;
@@ -76,9 +104,12 @@ void	ll_modify_pos(linkedlist_t *_ll, __uint where, point_t new_pos)
 	node_t	*node = _ll->start;
 	__uint	i = 0;
 
-	while(i < where)
+	while(node != NULL)
 	{
-		node = node->next;
+		if(i == where)
+			break;
+		else
+			node = node->next;
 		i++;
 	}
 	node->block.pos = new_pos;

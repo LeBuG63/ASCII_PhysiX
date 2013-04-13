@@ -12,9 +12,9 @@
 #define WIDHT	79
 
 #define NB_BLOCK	8
-#define KEY_ANY		255
+#define KEY_ANY		0
 
-#define CLASS_ANY	10
+#define CLASS_ANY	0
 #define CLASS_BLOCK	1
 #define CLASS_WATER 2
 
@@ -73,14 +73,14 @@ static struct _block_t_
 	int		can_fall,
 			is_water;
 }block_id[NB_BLOCK] = {
-	{CLASS_DUST,	"Sand",				"Can pass through the elements." ,		0, 0, 177, 's', 1, 0},		// Light block
+	{CLASS_DUST,	"Sand",				"Can pass through the elements." ,		0, 0, 178, 's', 1, 0},		// Light block
 	{CLASS_BLOCK,	"Wall",				"Fixed.",								0, 0, 219, ' ', 0, 0},		// Wall
-	{CLASS_DUST,	"Reverse Block",	"Block subject instead of gravity.",	0, 0, 176, 'r', 1, 0},		// Reverse block
+	{CLASS_DUST,	"Reverse Block",	"Block subject instead of gravity.",	0, 0, 177, 'r', 1, 0},		// Reverse block
 	{CLASS_BLOCK,	"Block",			"Can not pass through the elements.",	0, 0, 206, 'b', 1, 0},		// Heavy block
-	{CLASS_BLOCK,	"Grid",				"Grid.",								0, 0, 45,  'g', 0, 0},		// Grid
+	{CLASS_BLOCK,	"Grid",				"Grid.",								0, 0, 176,  'g', 0, 0},		// Grid
 	{CLASS_ANY,		"Water's Source",	"In progress...",						0, 0, 'V', 'w', 1, 0},		// Water source
 	{CLASS_ANY,		"Water",			"In progress...",						0, 0, '~', K_UNKNOWN, 0, 1},// Water
-	{CLASS_ANY,		"Piston",			"In progress...",						0, 0, 197, 'p', 1, 0}		// Piston
+	{CLASS_BLOCK,	"Piston",			"In progress...",						0, 0, 197, 'p', 1, 0}		// Piston
 };
 
 typedef enum _dir_t_

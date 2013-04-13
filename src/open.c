@@ -8,6 +8,7 @@
 #include "blocks.h"
 #include "player.h"
 #include "screen.h"
+#include "base64.h"
 
 void	open(linkedlist_t *_ll, player_t *_p)
 {

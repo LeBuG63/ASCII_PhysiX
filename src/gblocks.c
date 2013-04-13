@@ -4,7 +4,7 @@
 #include "funct.h"
 #include "blocks.h"
 
-void	lightblock(linkedlist_t *_ll, point_t *_p, __uint _where, int *_stop)
+void	sand(linkedlist_t *_ll, point_t *_p, __uint _where, int *_stop)
 {
 	if(!obstacle(*_p, 1, DIR_S))
 	{
@@ -59,7 +59,7 @@ void	grid(linkedlist_t *_ll, point_t *_p, __uint where)
 	point_t	cpy = *_p;
 
 	cpy.y--;
-	i = get_id_block(cpy, _ll);
+	i = get_block(cpy, _ll);
 
 	if(i != -1)
 	{

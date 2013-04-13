@@ -13,7 +13,7 @@
 #include "screen.h"
 #include "options.h"
 
-#define VERSION	L"ALPHA - 0.9.3"
+#define VERSION	L"ALPHA - 0.9.8"
 
 int main(void)
 {

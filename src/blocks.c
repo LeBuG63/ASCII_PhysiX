@@ -12,7 +12,7 @@ block_t	get_block_char(__byte _c)
 	return (block_id[i]);
 }
 
-int	 get_id_block(point_t _p, linkedlist_t *_ll)
+int	 get_block(point_t _p, linkedlist_t *_ll)
 {
 	node_t	*node = _ll->start;
 	int		i = 0,
@@ -28,6 +28,24 @@ int	 get_id_block(point_t _p, linkedlist_t *_ll)
 				j++;
 			return (j);
 		}
+		else
+			node = node->next;
+	}
+	return (-1);
+}
+
+int get_blockid(point_t _p, linkedlist_t *_ll)
+{
+	node_t	*node = _ll->start;
+	int		i = 0,
+			j = 0;
+
+	__byte	ch;
+	while(node != NULL)
+	{		
+		i++;
+		if(memcmp(&_p, &(node->block.pos), sizeof(point_t)) == 0)
+			return (i);
 		else
 			node = node->next;
 	}

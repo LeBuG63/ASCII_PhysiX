@@ -30,6 +30,7 @@ void	player_block(player_t _p, linkedlist_t *_ll)
 		else
 			;
 	}
+
 	if(!obstacle(_p.pos, 1, DIR_N))
 		if(_p.key == block_id[REVERSE_BLOCK].key && block_id[REVERSE_BLOCK].familly == CLASS_OBJ)
 		{

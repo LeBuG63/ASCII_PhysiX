@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <conio.h>
+#include <io.h>
 
 #include "map.h"
 #include "blocks.h"
@@ -27,6 +28,7 @@ void	map_alloc(void)
 	}
 	_map.arr[i] = NULL;
 }
+
 void	map_dealloc(void)
 {
 	__uint i = 0;
@@ -80,7 +82,7 @@ void	map_refresh(linkedlist_t *_ll)
 		if(!PAUSE)
 		{
 			if(ch == block_id[SAND].ch)
-				lightblock(_ll, &pos, where, &stop);
+				sand(_ll, &pos, where, &stop);
 			else if(ch == block_id[REVERSE_BLOCK].ch)
 				reverseblock(_ll, &pos, where, &stop);
 			else if(ch == block_id[HEAVY_BLOCK].ch)
@@ -91,6 +93,8 @@ void	map_refresh(linkedlist_t *_ll)
 				piston(_ll, &pos, where, &stop);
 			else if(ch == block_id[GRID].ch)
 				grid(_ll, &pos, where);
+			else
+				;
 		}
 
 		if(stop)
@@ -98,7 +102,7 @@ void	map_refresh(linkedlist_t *_ll)
 		else
 		{
 			gotoxy(pos);
-			putchar(ch);
+			write(1, &ch, 1);
 		}
 	}
 }

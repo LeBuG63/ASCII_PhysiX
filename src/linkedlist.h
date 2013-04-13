@@ -23,6 +23,7 @@ void	ll_create(linkedlist_t *);
 void	ll_destroy(linkedlist_t *);
 
 void	ll_add(linkedlist_t *, block_t, point_t);
+void	ll_destroy_at(linkedlist_t *, __uint);
 
 void	ll_print(linkedlist_t *);
 __byte	ll_at(linkedlist_t *, __uint , point_t *);

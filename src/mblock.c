@@ -6,11 +6,15 @@
 void	piston(linkedlist_t *_ll, point_t *_p, __uint _where, int *_side ,int *_stop)
 {
 	block_t	block;
-
-	if(get_char_x(*_p, 1) != _map.cborder)
+	int		where;
+	block.pos = *_p;
+	if(get_char_x(*_p, 1) != _map.cborder && get_char_x(*_p, 1) != _map.cfill)
 	{
-		block = get_block_char(get_char_x(*_p, -1));
 		block.pos.x -= 1;
-		ll_modify_pos(_ll, get_id_block(block.pos, _ll), block.pos);
+		if((where = get_blockid(block.pos, _ll)) != -1)
+		{
+			ll_modify_pos(_ll, where, block.pos);
+			_map.arr[block.pos.y][block.pos.x] = ' ';
+		}
 	}
 }
